@@ -7,6 +7,11 @@ use App\Models\Document;
 
 class Special extends BaseController
 {
+
+    public function cesar(){
+        return view('cryptage');
+    }
+
     public function databasetest(){
         $db = \Config\Database::connect();
         if ($db->connect()){return 'On est connéctés';}

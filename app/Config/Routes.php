@@ -11,6 +11,7 @@ use App\Controllers\DocumentController;
  */
 $routes->get('/', 'Home::index');
 $routes->get('/testdb', [Special::class, 'databasetest']);
+$routes->get('/cesar', [Special::class, 'cesar']);
 
 $routes->get('/document/list', [DocumentController::class, 'list']);
 $routes->get('/document/display/(:segment)', [DocumentController::class, 'display']);

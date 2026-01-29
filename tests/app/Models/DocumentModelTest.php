@@ -8,10 +8,6 @@ use CodeIgniter\Test\DatabaseTestTrait;
 
 class DocumentModelTest extends CIUnitTestCase
 {
-    use DatabaseTestTrait;
-
-    protected $refresh = true; // reset la DB à chaque test
-    protected $seed = '';      // optionnel
 
     protected function setUp(): void
     {
@@ -48,7 +44,6 @@ class DocumentModelTest extends CIUnitTestCase
         $this->assertNotNull($doc);
         $this->assertInstanceOf(\App\Entities\Document::class, $doc);
         $this->assertEquals('Doc trouvé', $doc->getTitle());
-        $this->assertEquals('Doc trouvé', '$doc->getTitle()');
     }
 
     /** @test */
@@ -98,5 +93,13 @@ class DocumentModelTest extends CIUnitTestCase
         $doc = $this->model->find($id);
 
         $this->assertFalse(property_exists($doc, 'fake_field'));
+    }
+
+    protected function tearDown(): void
+    {
+        $db = \Config\Database::connect('tests');
+        $db->table('document')->truncate();
+
+        parent::tearDown();
     }
 }
