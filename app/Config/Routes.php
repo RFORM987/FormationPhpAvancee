@@ -28,3 +28,5 @@ $routes->post('/couleurs/validate', [Couleurs::class, 'createColor']);
 $routes->get('/couleurs/display/(:segment)', [Couleurs::class, 'seeColor']);
 $routes->get('/couleurs/delete/(:segment)', [Couleurs::class, 'deleteColor']);
 $routes->get('/couleurs/(:segment)/(:segment)', [Couleurs::class, 'themetest']);
+
+service('auth')->routes($routes);
