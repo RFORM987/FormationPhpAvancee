@@ -31,7 +31,7 @@
     foreach($docs as $doc){ ?>
         <tr>
             <td><?= $doc->getTitle() ?></td>
-            <td><?= esc($doc->getAbstract(), 'raw') ?></td>
+            <td><?= esc($doc->getAbstract()) ?></td>
             <td><?= $doc->getAccess() ?></td>
             <td><a href="<?=  site_url('document/display/'.$doc->getId()) ?>">Display</a></td>
             <td><a href="<?=  site_url('document/edit/'.$doc->getId()) ?>">Edit</a></td>

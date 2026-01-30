@@ -20,18 +20,7 @@ class Special extends BaseController
         $db = \Config\Database::connect();
         if ($db->connect()){return 'On est connéctés';}
     }
-    public function document() : string
-    {
-        $doc1 = new Document('Mon journal',
-        'Un journal de formation',
-        'Je suis en train de coder un design pattern de prototype');
-        $doc2 = clone $doc1;
-        $doc2->setAccess('Public');
-        $data = ['doc1' => $doc1,'doc2' => $doc2];
 
-        return view('document',$data);
-
-    }
     public function varie( string $var): string
     {
         $termesacceptés = VariablesValides::getInstance();
