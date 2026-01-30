@@ -13,6 +13,7 @@ $routes->get('/', 'Home::index');
 $routes->get('/testdb', [Special::class, 'databasetest']);
 $routes->get('/cesar', [Special::class, 'cesar']);
 $routes->get('/variables/(:segment)', [Special::class, 'varie']);
+$routes->get('/api',[Special::class, 'api']);
 
 //Routes document
 $routes->get('/document/list', [DocumentController::class, 'list']);

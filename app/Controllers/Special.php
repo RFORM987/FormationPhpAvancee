@@ -12,6 +12,10 @@ class Special extends BaseController
         return view('cryptage');
     }
 
+    public function api(){
+        return $this->response->setJSON(json_encode([ 'test1' =>[ 'test' => "Ceci est un valeur de test"]]));
+    }
+
     public function databasetest(){
         $db = \Config\Database::connect();
         if ($db->connect()){return 'On est connéctés';}
